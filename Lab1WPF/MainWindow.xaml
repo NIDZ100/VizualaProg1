@@ -1,35 +1,41 @@
-﻿<Window x:Class="Lab1WPF.MainWindow"
+﻿<Window x:Name="Students" x:Class="Lab1WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab1WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="2000" Width="1300">
+        Title="Studenti" Height="2000" Width="1300">
     <Grid Height="1990" VerticalAlignment="Top">
-        <Label x:Name="Students" Content="Studenti" HorizontalAlignment="Left" Margin="82,51,0,0" VerticalAlignment="Top" Height="84" Width="128" FontSize="25"/>
-        <Label x:Name="lblName" Content="Vārds:" HorizontalAlignment="Left" Margin="82,103,0,0" VerticalAlignment="Top" Height="180" Width="128" FontSize="25"/>
-        <Label x:Name="lblId" Content="Apl. Nr.:" HorizontalAlignment="Left" Margin="82,169,0,0" VerticalAlignment="Top" Height="179" Width="128" FontSize="25"/>
-        <Label x:Name="lblGroup" Content="Grupa:" HorizontalAlignment="Left" Margin="82,251,0,0" VerticalAlignment="Top" Height="154" Width="128" FontSize="25"/>
-        <Label x:Name="lblStudentList" Content="Studentu saraksts:" HorizontalAlignment="Left" Margin="82,410,0,0" VerticalAlignment="Top" Height="68" Width="234" FontSize="25"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="1055,277,-455,1523">
-            <TextBox x:Name="txtSurname1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="332" Height="53" FontSize="100" Margin="-242,-210,0,0" TextChanged="txtSurname1_TextChanged"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="1212*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblName" Content="Vārds:" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" Height="180" Width="128" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblId" Content="Apl. Nr.:" HorizontalAlignment="Left" Margin="0,113,0,0" VerticalAlignment="Top" Height="180" Width="128" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblGroup" Content="Grupa:" HorizontalAlignment="Left" Margin="0,154,0,0" VerticalAlignment="Top" Height="154" Width="128" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblStudentList" Content="Studentu saraksts:" HorizontalAlignment="Left" Margin="70,252,0,0" VerticalAlignment="Top" Height="68" Width="234" FontSize="25" Grid.ColumnSpan="3"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="967,277,-455,1523" Grid.Column="2">
+            <TextBox x:Name="txtSurname1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="44" FontSize="100" Margin="-875,-210,0,0" TextChanged="txtSurname1_TextChanged"/>
         </Border>
-        <Border x:Name="txtId" BorderBrush="Black" BorderThickness="1" Margin="938,472,-338,1349">
-            <TextBox x:Name="txtID" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="345" FontSize="100" Margin="-505,-352,0,478" TextChanged="txtID_TextChanged"/>
+        <Border x:Name="txtId" BorderBrush="Black" BorderThickness="1" Margin="849,472,-338,1349" Grid.Column="2">
+            <TextBox x:Name="txtID" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" Width="316" FontSize="100" Margin="-755,-355,0,480" TextChanged="txtID_TextChanged"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="994,614,-394,1212">
-            <TextBox x:Name="txtGruop" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" Height="55" FontSize="100" TextChanged="txtGruop_TextChanged" Margin="-453,-452,0,0"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="905,614,-394,1212" Grid.Column="2">
+            <TextBox x:Name="txtGruop" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="316" Height="39" FontSize="100" TextChanged="txtGruop_TextChanged" Margin="-815,-451,0,0"/>
         </Border>
 
-        <Button x:Name="btnAddStudent" Content="Pievienot sarakstam" HorizontalAlignment="Left" Margin="82,328,0,0" VerticalAlignment="Top" Width="234" Height="43" FontSize="25"/>
-        <Button x:Name="sbnSave" Content="Saglabāt" HorizontalAlignment="Left" Margin="116,770,0,0" VerticalAlignment="Top" Width="166" Height="40" FontSize="25"/>
-        <Button x:Name="btnLoad" Content="Ielādēt" HorizontalAlignment="Left" Margin="469,787,0,0" VerticalAlignment="Top" Width="291" Height="144" FontSize="25"/>
-        <ListView x:Name="lstStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="70,483,650,1268" SelectionChanged="ListView_SelectionChanged" AutomationProperties.IsColumnHeader="True">
+        <Button x:Name="btnAddStudent" Content="Pievienot sarakstam" HorizontalAlignment="Left" Margin="0,209,0,0" VerticalAlignment="Top" Width="234" Height="38" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="sbnSave" Content="Saglabāt" HorizontalAlignment="Left" Margin="10,487,0,0" VerticalAlignment="Top" Width="166" Height="39" FontSize="25" Grid.Column="2"/>
+        <Button x:Name="btnLoad" Content="Ielādēt" HorizontalAlignment="Left" Margin="354,487,0,0" VerticalAlignment="Top" Width="153" Height="39" FontSize="25" Grid.Column="2"/>
+        <ListView x:Name="lstStudents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="70,298,650,1523" SelectionChanged="ListView_SelectionChanged" AutomationProperties.IsColumnHeader="True" Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView/>
             </ListView.View>
-        </ListView> 
+        </ListView>
+        <TextBox x:Name="txtName1" HorizontalAlignment="Left" Margin="91,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="324" Height="41" Grid.Column="2"/>
+        <Label x:Name="lblSurname" Content="Uzvārds:" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" FontSize="25" Grid.Column="1" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
