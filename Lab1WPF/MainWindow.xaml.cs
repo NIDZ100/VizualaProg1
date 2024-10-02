@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Lab1Library;
+using System;
 using System.Windows;
 using System.Windows.Controls;
+
+using static Lab1Library.Student;
+using System.Linq;
 
 namespace Lab1WPF
 {
@@ -9,33 +13,83 @@ namespace Lab1WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Studentu saraksts.
+        /// </summary>
+       
+        private StudentsData students = new StudentsData();
+
+        private void InvalidateList()
+        {
+            // saraksta aktualizēšana
+            lstStudents.ItemsSource = students.Students.ToList();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        // Event handler for ListView selection changes
+        private void lstStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Your logic here (if needed)
+
         }
 
-        // Event handler for txtGruop TextBox changes
-        private void txtGruop_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            // Your logic here (if needed)
+            try
+            {
+                students.Add(new Student(txtName.Text, txtSurname.Text
+                , txtId.Text, txtGroup.Text, txtEmail.Text));
+                InvalidateList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            txtName.Clear();
+            txtSurname.Clear();
+            txtId.Clear();
+            txtGroup.Clear();
+            txtEmail.Clear();
         }
 
-        // Event handler for txtSurname1 TextBox changes
-        private void txtSurname1_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // Your logic here (if needed)
+            try
+            {
+                students.Save(StudentsData.DefaultFilename);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
-        // Event handler for txtID TextBox changes
-        private void txtID_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
-            // Add your logic here (if needed)
+            try
+            {
+                students.Students.Clear();
+                students.Load(StudentsData.DefaultFilename);
+                InvalidateList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnLoad_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

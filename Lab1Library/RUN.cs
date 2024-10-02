@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Lab1Library; // Ensure you have the correct namespace for your library
-using static Lab1Library.Students;
+using static Lab1Library.Student;
 
 class Program
 {
@@ -11,7 +11,7 @@ class Program
         StudentsData studentsData = new StudentsData();
 
         // Create a new student object
-        Student newStudent = new Student("Niklavs", "Zibailo", "100", "GroupA");
+        Student newStudent = new Student("Niklavs", "Zibailo", "100", "GroupA", "email@gmail.com");
 
 
         // Add the new student to the StudentsData instance

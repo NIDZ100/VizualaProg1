@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿
 using System.Xml.Serialization;
-using static Lab1Library.Students;
+
 
 namespace Lab1Library
 {
-    internal class StudentsData
+    public class StudentsData
     {
         /// <summary>
         /// Studentu saraksts.
