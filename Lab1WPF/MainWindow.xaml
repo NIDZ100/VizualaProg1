@@ -46,8 +46,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="btnAddStudent" Content="Pievienot sarakstam" HorizontalAlignment="Left" Margin="36,184,0,0" VerticalAlignment="Top" Width="142" Height="20" Click="btnAddStudent_Click"/>
-        <Button x:Name="btnSave" Content="Saglabāt" HorizontalAlignment="Left" Margin="54,443,0,0" VerticalAlignment="Top" Height="25" Width="89"/>
-        <Button x:Name="btnLoad" Content="Ielādēt" HorizontalAlignment="Left" Margin="254,443,0,0" VerticalAlignment="Top" Height="25" Width="84" Click="btnLoad_Click_1"/>
-
+        <Button x:Name="btnSave" Content="Saglabāt" HorizontalAlignment="Left" Margin="54,443,0,0" VerticalAlignment="Top" Height="25" Width="89" Click="btnSave_Click"/>
+        <Button x:Name="btnLoad" Content="Ielādēt" HorizontalAlignment="Left" Margin="254,443,0,0" VerticalAlignment="Top" Height="25" Width="84" Click="btnLoad_Click"/>
     </Grid>
 </Window>
